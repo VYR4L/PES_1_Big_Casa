@@ -7,7 +7,7 @@ class Usuario(models.Models):
     last_name = models.CharField(max_length=50)
     phone = models.CharField(max_length=11)
     password = models.CharField(max_length=50)
-    cpf = models.CharField(max_length=9)
+    cpf = models.CharField(max_length=9,unique=True)
     adress = models.CharField(max_length=100)
     is_super_user = models.BooleanField(default=False)
 
