@@ -13,6 +13,9 @@ body{
 #int_cpf{
     width: 80%;
 }
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
 #int_pass{
     width: 80%;
 }
@@ -20,10 +23,12 @@ body{
     display: flex;
     flex-direction: row;
     width: 80%;
+    vertical-align: top;
 }
 #forg_pass{
     margin-bottom: 1em;
     text-decoration: none;
+    cursor: pointer;
 }
 footer{
     position: fixed;
@@ -37,7 +42,7 @@ footer{
 }
 #botao{
     margin-top: 1em;
-    background: red;
+    background: #FF0000;
     border: none;
     width: 70%;
 }

@@ -10,14 +10,14 @@
 <body>
     <body>
         <h1 id="login_central">Login</h1>
-        <input type="text" name="cpf" placeholder="CPF" aria-label="Text" class="entradas" id="int_cpf" onchange="">
+        <input type="number" name="cpf" placeholder="CPF" aria-label="Text" class="entradas" id="int_cpf">
         <input type="password" name="password" placeholder="Senha" aria-label="Number" class="entradas" id="int_pass">
         <div id="ver_senha">
-            <input type="checkbox">
+            <input type="checkbox" id="pass_check" onclick="mostrarSenha()">
             <p>mostar senha.</p>
         </div>
-        <a onclick="" id="forg_pass">Esqueceu a senha?</a>
-        <button id="botao">Login</button>
+        <a id="forg_pass" onclick="naoExiste()">Esqueceu a senha?</a>
+        <button id="botao" onclick="validarCPF()">Login</button>
     </body>
     <footer>
         <p id="autores">2024 - Felipe Zanatta, Vinicius Viana, Vitor Mayorca</p>
