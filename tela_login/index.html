@@ -4,13 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+    <link rel="stylesheet" href="style.css">
     <title>Big Casa</title>
 </head>
 <body>
-    <h1 id="login_central">Login</h1>
-    <input type="text">
-    <input type="password" name="password" placeholder="Senha" aria-label="Number">
-    <a href="">Esqueceu a senha?</a>
-    <button>Login</button>
+    <body>
+        <h1 id="login_central">Login</h1>
+        <input type="text" name="cpf" placeholder="CPF" aria-label="Text" class="entradas" id="int_cpf" onchange="">
+        <input type="password" name="password" placeholder="Senha" aria-label="Number" class="entradas" id="int_pass">
+        <div id="ver_senha">
+            <input type="checkbox">
+            <p>mostar senha.</p>
+        </div>
+        <a onclick="" id="forg_pass">Esqueceu a senha?</a>
+        <button id="botao">Login</button>
+    </body>
+    <footer>
+        <p id="autores">2024 - Felipe Zanatta, Vinicius Viana, Vitor Mayorca</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10em;
+}
+.entradas{
+    margin-top: 2em;
+    border: none;
+    border-bottom: 1px solid rgb(201, 201, 201);
+    border-radius: 0;
+}
+#int_cpf{
+    width: 80%;
+}
+#int_pass{
+    width: 80%;
+}
+#ver_senha{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+#forg_pass{
+    margin-bottom: 1em;
+    text-decoration: none;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+#autores{
+    font-family: monospace;
+    font-size: 10px;
+}
+#botao{
+    margin-top: 1em;
+    background: red;
+    border: none;
+    width: 70%;
+}
