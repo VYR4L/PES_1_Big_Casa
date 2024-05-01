@@ -7,12 +7,11 @@ function mostrarSenha(){
         campoSenha.type = "password";
     }
 }
+
 function login(){
     alert("CPF CORRETO");
-    /* if(cpf === cpf || senha === senha){
-        alert("pintos grandes");
-    } */
 };
+
 function validarCPF(){
     let cpf = document.getElementById("int_cpf");
     let senha = document.getElementById("int_pass");
@@ -29,7 +28,8 @@ function validarCPF(){
     }else{
         login();
     }
+
 }
 function naoExiste(){
-    alert("AINDA NÃI EXISTE");
+    alert("AINDA NÃO EXISTE");
 }
