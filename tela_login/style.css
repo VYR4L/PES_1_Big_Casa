@@ -1,8 +1,15 @@
 body{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 93vh;
+}
+main{
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-top: 10em;
+    padding:0;
 }
 .entradas{
     margin-top: 2em;
@@ -13,11 +20,11 @@ body{
 #int_cpf{
     width: 80%;
 }
-input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
-    -webkit-appearance: none;
-}
 #int_pass{
     width: 80%;
+}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
 }
 #ver_senha{
     display: flex;
@@ -33,7 +40,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
 footer{
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     text-align: center;
 }
 #autores{
