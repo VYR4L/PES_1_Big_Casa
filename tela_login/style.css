@@ -15,7 +15,7 @@ main{
     margin-top: 2em;
     border: none;
     border-bottom: 1px solid rgb(201, 201, 201);
-    border-radius: 0;
+    border-radius: 0;;
 }
 #int_cpf{
     width: 80%;
@@ -52,4 +52,16 @@ footer{
     background: #FF0000;
     border: none;
     width: 70%;
+}
+body.lightmode{
+    background: white;
+}
+.entradas.lighmode{
+    background: white;
+}
+#pass_check.lightmode{
+    background: white;
+}
+footer.lightmode{
+    background: white;
 }
