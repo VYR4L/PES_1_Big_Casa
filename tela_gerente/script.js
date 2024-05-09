@@ -7,3 +7,6 @@ document.querySelector('#btnFolga').addEventListener('click', function(){
 document.querySelector('#btnExtra').addEventListener('click', function(){
     window.location.href = '../tela_extraFuncionarios/index.html';
 })
+document.querySelector('#shutButton').addEventListener('click', function(){
+    window.location.href = '../tela_login/index.html';
+})
