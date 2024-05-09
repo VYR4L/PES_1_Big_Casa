@@ -1,4 +1,4 @@
-let func = 100;
+let func = 25;
 
 let newTextarea = [];
 

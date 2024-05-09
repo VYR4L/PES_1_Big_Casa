@@ -3,7 +3,8 @@ body{
     flex-direction: column;
     justify-content: center;
     width: 100vw;
-    height: 85vh;
+    height: 100dvh;
+    background-color: white;
 }
 main{
     display: flex;
@@ -11,11 +12,15 @@ main{
     align-items: center;
     padding:0;
 }
+#login_central{
+    color: rgb(201, 201, 201);
+}
 .entradas{
     margin-top: 2em;
     border: none;
     border-bottom: 1px solid rgb(201, 201, 201);
-    border-radius: 0;;
+    border-radius: 0;
+    background-color: white;
 }
 #int_cpf{
     width: 80%;
@@ -37,12 +42,13 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
     text-decoration: none;
     cursor: pointer;
 }
-footer{
+/* footer{
     position: fixed;
     bottom: 0;
     width: 100vw;
     text-align: center;
-}
+    background-color: white;
+} */
 #autores{
     font-family: monospace;
     font-size: 10px;
@@ -53,15 +59,7 @@ footer{
     border: none;
     width: 70%;
 }
-body.lightmode{
+#pass_check{
     background: white;
-}
-.entradas.lighmode{
-    background: white;
-}
-#pass_check.lightmode{
-    background: white;
-}
-footer.lightmode{
-    background: white;
+    border: solid rgb(225, 225, 225);
 }
