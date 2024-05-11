@@ -16,10 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from backend.views import Login, Create_user
+from backend.views import Login, Tela_gerente
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("login/", Login.as_view(), name='login'),
-    path("create_user/", Create_user.as_view(), name='create_user')
+    path("create_user/", Tela_gerente.as_view(), name='create_user')
 ]

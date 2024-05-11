@@ -9,6 +9,9 @@ class Usuario(models.Model):
     password = models.CharField(max_length=50)
     cpf = models.CharField(max_length=9, unique=True)
     adress = models.CharField(max_length=100)
+    annual_leave = models.FloatField()
+    day_off = models.DateField()
+    extra_time = models.DateField()
 
     class Meta:
         app_label = 'BIG_casa'
