@@ -1,12 +1,47 @@
-from django.shortcuts import render
-from django import http
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
-from rest_framework import permissions
-from django.contrib.auth import authenticate
-from .models import Usuario
+from .models import Usuario, Gerente
+
+class CriarGerente(APIView):
+    def post(self, request, *args, **kwargs):
+        first_name = request.data.get("first_name")
+        last_name = request.data.get("last_name")
+        phone = request.data.get("phone")
+        cpf = request.data.get("cpf")
+        password = request.data.get("password")
+        adress = request.data.get("adress")
+
+        if (
+            not first_name
+            or not last_name
+            or not phone
+            or not cpf
+            or not password
+            or not adress
+        ):
+            return Response(
+                {"message": "All fields are required"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if Gerente.objects.filter(cpf=cpf).exists():
+            return Response(
+                {"message": "CPF already exists"}, status=status.HTTP_400_BAD_REQUEST
+            )
+        manager = Gerente.objects.create(
+            first_name=first_name, last_name=last_name, phone=phone, cpf=cpf, adress=adress, password=password
+        )
+
+        if manager:
+            manager.save()
+            return Response({"message": "Manager created"}, status=status.HTTP_201_CREATED)
+        else:
+            return Response(
+                {"message": "Failed to create manager"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            )
 
 
 class Login(APIView):
@@ -38,7 +73,7 @@ class Tela_gerente(APIView):
 
     # Blocking users who are not from 'Gerente' class
     def dispatch(self, request, *args, **kwargs):
-        if not request.user.is_authenticated and not request.user.groups.filter(name='Gerente').exists():
+        if not request.user.is_authenticated or not request.user.groups.filter(name='Gerente').exists():
             return Response(
                 {"message": "You do not have permission to acces this page"},
                 status=status.HTTP_403_FORBIDDEN
@@ -60,8 +95,6 @@ class Tela_gerente(APIView):
             or not phone
             or not cpf
             or not adress
-            or not first_name
-            or not last_name
             or not password
         ):
             return Response(
@@ -75,7 +108,7 @@ class Tela_gerente(APIView):
             )
 
         user = Usuario.objects.create_user(
-            first_name=first_name, last_name=last_name, adress=adress, password=password
+            first_name=first_name, last_name=last_name, phone=phone, cpf=cpf, adress=adress, password=password
         )
 
         if user:
@@ -165,3 +198,4 @@ class Tela_gerente(APIView):
             {"message": "User deleted successfully"},
             status=status.HTTP_204_NO_CONTENT
         )
+    
