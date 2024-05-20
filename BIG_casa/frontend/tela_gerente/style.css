@@ -35,14 +35,34 @@ main{
 }
 footer{
     position: fixed;
-    bottom: 0;
-    height: 15vh;
+    bottom: -85vh;
+    height: 100vh;
     width: 100vw;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     background: #FF7777;
     border-radius: 25px 25px 0 0;
+    padding: 0;
+    transition: 0.75s;
+}
+#slide{
+    position: fixed;
+    width: 150px;
+    height: 3px;
+    background: white;
+    border-radius: 10px;
+}
+#cont{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 13vh;
+    justify-content: center;
+    align-items: center;
+}
+p{
+    margin: 0;
 }
 #shut{
     width: 30vw;
