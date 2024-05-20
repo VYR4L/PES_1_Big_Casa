@@ -10,6 +10,9 @@ document.querySelector('#btnExtra').addEventListener('click', function(){
 document.querySelector('#shutButton').addEventListener('click', function(){
     window.location.href = '../tela_login/index.html';
 })
+document.querySelector('#btnAdd').addEventListener('click', function(){
+    window.location.href = './tela_adicionarFun/index.html';
+})
 let state = 0
 function slide(){
     let slide = document.querySelector("footer")
