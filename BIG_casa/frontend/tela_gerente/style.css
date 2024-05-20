@@ -35,8 +35,8 @@ main{
 }
 footer{
     position: fixed;
-    bottom: -85vh;
-    height: 100vh;
+    bottom: -80vh;
+    height: 100dvh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -57,7 +57,7 @@ footer{
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 13vh;
+    height: 10vh;
     justify-content: center;
     align-items: center;
 }

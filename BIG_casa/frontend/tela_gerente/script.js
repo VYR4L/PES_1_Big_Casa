@@ -19,7 +19,7 @@ function slide(){
         state = 1
     }else{
         console.log("pika")
-        slide.style.bottom = "-85vh"
+        slide.style.bottom = "-80vh"
         state = 0
     }
 }
