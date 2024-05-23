@@ -18,9 +18,7 @@ let p = [];
 for(let i = 0; i < diasNoMes; i++){
     p[i] = document.createElement("p");
 
-    p[i].innerText = i + 1
-
-    /* p[i].style. */
+    p[i].innerText = i + 1;
     
     let div = document.querySelector('#dias');
 
