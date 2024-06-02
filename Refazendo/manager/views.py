@@ -63,7 +63,7 @@ class ManageUsers(APIView):
                 {"message": "Username already exists"}, status=status.HTTP_400_BAD_REQUEST
             )
 
-        if Gerente.objects.filter(user__profile__cpf=cpf).exists():
+        if User.objects.filter(user__profile__cpf=cpf).exists():
             return Response(
                 {"message": "CPF already exists"}, status=status.HTTP_400_BAD_REQUEST
             )
