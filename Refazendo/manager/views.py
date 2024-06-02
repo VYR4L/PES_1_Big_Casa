@@ -165,6 +165,41 @@ class ManagerAnnualLeave(APIView):
             {"message": "Annual leave updated successfully"}, status=status.HTTP_200_OK)
     
 
+class ManagerExtraHours(APIView):
+    permission_classes = [IsGerente]
+
+    def get(self, request):
+        users = User.objects.all()
+        extra_hours = []
+        for user in users:
+            extra_hours.append(
+                {
+                    "user": user.username,
+                    "extra_hours": user.annual_leave.extra_hours,
+                }
+            )
+        return Response(extra_hours, status=status.HTTP_200_OK)
+    
+    def put(self, request, pk):
+        user = User.objects.filter(pk=pk).first()
+        if not user:
+            return Response(
+                {"message": "User not found"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+        extra_hours = request.data.get("extra_hours")
+        if not extra_hours:
+            return Response(
+                {"message": "Extra hours are required"}, status=status.HTTP_400_BAD_REQUEST
+            )
+
+        user.annual_leave.extra_hours = extra_hours
+        user.annual_leave.save()
+
+        return Response(
+            {"message": "Extra hours updated successfully"}, status=status.HTTP_200_OK)
+    
+
 class ControlManager(APIView):
     permission_classes = [IsGerente]
 
