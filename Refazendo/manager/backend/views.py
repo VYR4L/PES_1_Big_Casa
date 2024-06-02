@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth import login, logout, authenticate
 from manager.annual_leave.models import AnnualLeave
-from django.contrib.auth.decorators import login_required
+from rest_framework.permissions import IsAuthenticated
 
 from rest_framework import status
 
@@ -31,8 +31,8 @@ class LoginUser(APIView):
         return Response({"message": "Logged out successfully"}, status=status.HTTP_200_OK)
 
 
-@login_required
 class UserAnnualLeave(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         user = self.request.user
         annual_leave = AnnualLeave.objects.filter(user=user).first()
@@ -50,8 +50,8 @@ class UserAnnualLeave(APIView):
         )
     
 
-@login_required
 class UserExtraHours(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         user = self.request.user
         annual_leave = AnnualLeave.objects.filter(user=user).first()
@@ -69,8 +69,8 @@ class UserExtraHours(APIView):
         )
     
 
-@login_required
 class UserDayOff(APIView):
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         user = self.request.user
         annual_leave = AnnualLeave.objects.filter(user=user).first()
