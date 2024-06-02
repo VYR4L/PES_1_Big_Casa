@@ -4,6 +4,7 @@ from rest_framework import status
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import Gerente
+from backend.models import Usuario
 from .permissions import IsGerente
 from manager.backend.serializers import UsuarioSerializer
 
@@ -63,7 +64,7 @@ class ManageUsers(APIView):
                 {"message": "Username already exists"}, status=status.HTTP_400_BAD_REQUEST
             )
 
-        if User.objects.filter(user__profile__cpf=cpf).exists():
+        if Usuario.objects.filter(user__profile__cpf=cpf).exists():
             return Response(
                 {"message": "CPF already exists"}, status=status.HTTP_400_BAD_REQUEST
             )
@@ -162,3 +163,47 @@ class ManagerAnnualLeave(APIView):
 
         return Response(
             {"message": "Annual leave updated successfully"}, status=status.HTTP_200_OK)
+    
+
+class ControlManager(APIView):
+    permission_classes = [IsGerente]
+
+    def post(self, request):
+        cpf = request.data.get("cpf")
+        username = cpf
+        password = request.data.get("password")
+        first_name = request.data.get("first_name")
+        last_name = request.data.get("last_name")
+        phone = request.data.get("phone")
+        address = request.data.get("address")
+
+        if not all([username, password, first_name, last_name, cpf, phone, address]):
+            return Response(
+                {"message": "All fields are required"},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        if User.objects.filter(username=username).exists():
+            return Response(
+                {"message": "Username already exists"}, status=status.HTTP_400_BAD_REQUEST
+            )
+
+        if Gerente.objects.filter(user__profile__cpf=cpf).exists():
+            return Response(
+                {"message": "CPF already exists"}, status=status.HTTP_400_BAD_REQUEST
+            )
+
+        user = User.objects.create_user(
+            username=username, password=password,
+            first_name=first_name, last_name=last_name
+        )
+        user.profile.cpf = cpf
+        user.profile.phone = phone
+        user.profile.address = address
+        user.profile.save()
+        user.save()
+
+        gerente = Gerente.objects.create(user=user)
+        gerente.save()
+
+        return Response({"message": "Manager created successfully"}, status=status.HTTP_201_CREATED)
