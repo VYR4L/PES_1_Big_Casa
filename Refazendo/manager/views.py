@@ -200,6 +200,41 @@ class ManagerExtraHours(APIView):
             {"message": "Extra hours updated successfully"}, status=status.HTTP_200_OK)
     
 
+class ManagerDayOff(APIView):
+    permission_classes = [IsGerente]
+
+    def get(self, request):
+        users = User.objects.all()
+        day_off = []
+        for user in users:
+            day_off.append(
+                {
+                    "user": user.username,
+                    "day_off": user.annual_leave.day_off,
+                }
+            )
+        return Response(day_off, status=status.HTTP_200_OK)
+    
+    def put(self, request, pk):
+        user = User.objects.filter(pk=pk).first()
+        if not user:
+            return Response(
+                {"message": "User not found"}, status=status.HTTP_404_NOT_FOUND
+            )
+
+        day_off = request.data.get("day_off")
+        if not day_off:
+            return Response(
+                {"message": "Day off is required"}, status=status.HTTP_400_BAD_REQUEST
+            )
+
+        user.annual_leave.day_off = day_off
+        user.annual_leave.save()
+
+        return Response(
+            {"message": "Day off updated successfully"}, status=status.HTTP_200_OK)
+    
+
 class ControlManager(APIView):
     permission_classes = [IsGerente]
 
