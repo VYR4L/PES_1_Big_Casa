@@ -13,6 +13,11 @@ function login(){
     window.location.href = '../tela_gerente/index.html';
 };
 
+function trocaLogin(){
+    alert("Trocando para o login de Funcionários");
+    window.location.href = '../tela_loginFuncionario/index.html'
+};
+
 function validarCPF(){
     let cpf = document.getElementById("int_cpf");
     let senha = document.getElementById("int_pass");
