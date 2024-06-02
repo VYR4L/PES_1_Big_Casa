@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.contrib.auth import login, logout, authenticate
 from manager.annual_leave.models import AnnualLeave
+from django.contrib.auth.decorators import login_required
 
 from rest_framework import status
 
@@ -30,6 +31,7 @@ class LoginUser(APIView):
         return Response({"message": "Logged out successfully"}, status=status.HTTP_200_OK)
 
 
+@login_required
 class UserAnnualLeave(APIView):
     def get(self, request):
         user = self.request.user
@@ -47,3 +49,40 @@ class UserAnnualLeave(APIView):
             status=status.HTTP_200_OK,
         )
     
+
+@login_required
+class UserExtraHours(APIView):
+    def get(self, request):
+        user = self.request.user
+        annual_leave = AnnualLeave.objects.filter(user=user).first()
+        if not annual_leave:
+            return Response(
+                {"message": "User not found"},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        return Response(
+            {
+                "user": user.username,
+                "extra_hours": annual_leave.extra_hours,
+            },
+            status=status.HTTP_200_OK,
+        )
+    
+
+@login_required
+class UserDayOff(APIView):
+    def get(self, request):
+        user = self.request.user
+        annual_leave = AnnualLeave.objects.filter(user=user).first()
+        if not annual_leave:
+            return Response(
+                {"message": "User not found"},
+                status=status.HTTP_404_NOT_FOUND,
+            )
+        return Response(
+            {
+                "user": user.username,
+                "day_off": annual_leave.day_off,
+            },
+            status=status.HTTP_200_OK,
+        )
