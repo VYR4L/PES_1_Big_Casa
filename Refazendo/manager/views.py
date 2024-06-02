@@ -4,7 +4,7 @@ from rest_framework import status
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from .models import Gerente
-from backend.models import Usuario
+from manager.backend.models import Usuario
 from .permissions import IsGerente
 from manager.backend.serializers import UsuarioSerializer
 
