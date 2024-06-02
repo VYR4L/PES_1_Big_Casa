@@ -10,7 +10,7 @@ function mostrarSenha(){
 
 function login(){
     alert("CPF CORRETO");
-    window.location.href = '../tela_gerente/index.html';
+    window.location.href = '../tela_funcionario/index.html';
 };
 
 function trocaLogin(){
@@ -39,36 +39,3 @@ function validarCPF(){
 function naoExiste(){
     alert("AINDA NÃO EXISTE");
 }
-document.getElementById('toggleMode').addEventListener('click', function() {
-    let body = document.body;
-    let passCheck = document.getElementById("pass_check");
-    let entradas = document.getElementsByClassName("entradas");
-    let footer = document.getElementById('pe')
-    if (body.classList.contains('darkmode')) {
-        body.classList.remove('darkmode');
-        body.classList.add('lightmode');
-        passCheck.classList.remove('darkmode');
-        passCheck.classList.add('lightmode');
-
-        for(let i = 0; i < entradas.length; i++) {
-            entradas[i].classList.remove('darkmode');
-            entradas[i].classList.add('lightmode');
-        }
-
-        footer.classList.remove('darkmode');
-        footer.classList.add('lightmode');
-    } else {
-        body.classList.remove('lightmode');
-        body.classList.add('darkmode');
-        passCheck.classList.remove('lightmode');
-        passCheck.classList.add('darkmode');
-
-        for(let i = 0; i < entradas.length; i++) {
-            entradas[i].classList.remove('lightmode');
-            entradas[i].classList.add('darkmode');
-        }
-        
-        footer.classList.remove('lightmode');
-        footer.classList.add('darkmode');
-    }
-});
