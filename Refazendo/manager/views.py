@@ -44,11 +44,11 @@ class ManageUsers(APIView):
     permission_classes = [IsGerente]
 
     def post(self, request):
-        username = request.data.get("username")
+        cpf = request.data.get("cpf")
+        username = cpf
         password = request.data.get("password")
         first_name = request.data.get("first_name")
         last_name = request.data.get("last_name")
-        cpf = request.data.get("cpf")
         phone = request.data.get("phone")
         address = request.data.get("address")
 
