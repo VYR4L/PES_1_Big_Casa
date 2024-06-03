@@ -1,0 +1,55 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100dvh;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:0;
+}
+#login_central{
+    color: rgb(150, 150, 150);
+} 
+.entradas{
+    margin-top: 2em;
+    border: none;
+    border-bottom: 1px solid rgb(201, 201, 201);
+    border-radius: 0;
+}
+#int_cpf{
+    width: 80%;
+}
+#int_pass{
+    width: 80%;
+}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+#ver_senha{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    vertical-align: top;
+}
+#forg_pass{
+    margin-bottom: 1em;
+    text-decoration: none;
+    cursor: pointer;
+}
+#autores{
+    font-family: monospace;
+    font-size: 10px;
+}
+#botao{
+    margin-top: 1em;
+    background: #FF0000;
+    border: none;
+    width: 70%;
+}
+#pass_check:checked{
+    background-color: green;
+}
