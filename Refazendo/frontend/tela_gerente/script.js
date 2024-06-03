@@ -13,6 +13,9 @@ document.querySelector('#shutButton').addEventListener('click', function(){
 document.querySelector('#btnAdd').addEventListener('click', function(){
     window.location.href = './tela_adicionarFun/index.html';
 })
+document.querySelector('#btnEdit').addEventListener('click', function(){
+    window.location.href = './tela_editarFun/index.html';
+})
 let state = 0
 function slide(){
     let slide = document.querySelector("footer")
