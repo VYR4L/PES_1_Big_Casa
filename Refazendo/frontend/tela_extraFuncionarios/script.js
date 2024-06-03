@@ -15,5 +15,5 @@ for(let i = 0; i < func; i++){
 }
 
 document.querySelector('#btnBack').addEventListener('click', function(){
-    window.location.href = '../tela_gerente/index.html';
+    window.history.back();
 });

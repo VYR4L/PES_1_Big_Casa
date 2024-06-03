@@ -1,5 +1,5 @@
 document.querySelector('#btnBack').addEventListener('click', function(){
-    window.location.href = '../tela_gerente/index.html';
+    window.history.back();
 });
 
 function getDiasNoMes(mes, ano) {
